@@ -1,0 +1,37 @@
+#services:
+#  postgres:
+#    image: postgres:16
+#    container_name: fileupload_db
+#    environment:
+#      POSTGRES_DB: fileupload
+#      POSTGRES_USER: postgres
+#      POSTGRES_PASSWORD: postgres
+#    ports:
+#      - "5432:5432"
+#    volumes:
+#      - postgres_data:/var/lib/postgresql/data
+#
+#volumes:
+#  postgres_data:
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: fileupload_db
+    environment:
+      POSTGRES_DB: fileupload
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      # Forces the container OS to use Kolkata time
+      TZ: "Asia/Kolkata"
+      # Forces PostgreSQL engine to default to Kolkata time
+      PGTZ: "Asia/Kolkata"
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+
+
